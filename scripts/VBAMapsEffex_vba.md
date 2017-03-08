@@ -2,7 +2,7 @@
 ## VBA Module: **[VBAMapsEffex](/scripts/VBAMapsEffex.vba "source is here")**
 ### Type: StdModule  
 
-This procedure list for repo (effex-demo-markers-excel) was automatically created on 3/8/2017 8:42:35 AM by VBAGit.
+This procedure list for repo (effex-demo-markers-excel) was automatically created on 3/8/2017 11:15:30 AM by VBAGit.
 For more information see the [desktop liberation site](http://ramblings.mcpher.com/Home/excelquirks/drivesdk/gettinggithubready "desktop liberation")
 
 Below is a section for each procedure in VBAMapsEffex
@@ -21,6 +21,19 @@ Description: ****
 
 
 ---
+VBA Procedure: **addItemsToMenu**  
+Type: **Function**  
+Returns: **Variant**  
+Return description: ****  
+Scope: **Public**  
+Description: ****  
+
+*Function addItemsToMenu()*  
+
+**no arguments required for this procedure**
+
+
+---
 VBA Procedure: **pullSheet**  
 Type: **Sub**  
 Returns: **void**  
@@ -34,16 +47,44 @@ Description: **pull and populate active sheet from effex**
 
 
 ---
-VBA Procedure: **pushSheet**  
+VBA Procedure: **createFromSheet**  
+Type: **Sub**  
+Returns: **void**  
+Return description: ****  
+Scope: **Public**  
+Description: ****  
+
+*Public Sub createFromSheet()*  
+
+**no arguments required for this procedure**
+
+
+---
+VBA Procedure: **updateFromSheet**  
+Type: **Sub**  
+Returns: **void**  
+Return description: ****  
+Scope: **Public**  
+Description: ****  
+
+*Public Sub updateFromSheet()*  
+
+**no arguments required for this procedure**
+
+
+---
+VBA Procedure: **pushItems**  
 Type: **Sub**  
 Returns: **void**  
 Return description: ****  
 Scope: **Public**  
 Description: **push active sheet to effex**  
 
-*Public Sub pushSheet()*  
+*Public Sub pushItems(Optional create As Boolean = False)*  
 
-**no arguments required for this procedure**
+*name*|*type*|*optional*|*default*|*description*
+---|---|---|---|---
+create|Boolean|True| False|
 
 
 ---
