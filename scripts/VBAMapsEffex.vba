@@ -1,12 +1,42 @@
 Option Explicit
 '// test connecting to maps app with effex
+'// this example assumes that it can create, read , generate aliases and update items
+'//
+'// use this alias for all data items
+Const alias = "effex-demo-markers"
+Private ec As New cVBAMapsEffex
+Private efx As New cEffexApiClientVBA
+Const demoUrl = "https://storage.googleapis.com/effex-console-static/demos/effex-demo-markers/index.html"
+
 
 Function storeBoss()
-    Dim ec As cVBAMapsEffex
-    Set ec = New cVBAMapsEffex
+
     '' the boss key comes from the console
-    ec.setProperty "boss", JSONParse("{'key':'bx2ao-1qw-b74i7saaoc26'}")
+    ec.setProperty "boss", JSONParse("{'key':'----yourbosskey from effex console----'}")
     
+End Function
+Function addItemsToMenu()
+    With CommandBars("standard")
+        '//clear up any previous references
+        If (isinCollection(.Controls, "effex")) Then
+            .Controls("effex").Delete
+        End If
+        With .Controls.add(msoControlPopup)
+            .Caption = "effex"
+            With .Controls.add(msoControlButton)
+                .Caption = "create in store"
+                .OnAction = "createFromSheet"
+            End With
+            With .Controls.add(msoControlButton)
+                .Caption = "update store"
+                .OnAction = "updateFromSheet"
+            End With
+            With .Controls.add(msoControlButton)
+                .Caption = "pull from store"
+                .OnAction = "pullSheet"
+            End With
+        End With
+    End With
 End Function
 
 '/**
@@ -15,8 +45,7 @@ End Function
 Public Sub pullSheet()
 '
 '  // we'll need these are in the registry
-    Dim ec As cVBAMapsEffex
-    Set ec = New cVBAMapsEffex
+
     
     Dim keys As cJobject
     Set keys = ec.getProperty("keys")
@@ -25,7 +54,7 @@ Public Sub pullSheet()
     Dim result As cJobject, values As Variant
     
     ' // get the data using the updater key
-    Set result = ec.pullFromEffex(keys.toString("updater"), "effex-demo-markers")
+    Set result = ec.pullFromEffex(keys.toString("updater"), alias)
     If (Not result.cValue("ok")) Then
         MsgBox ("couldnt pull data " + JSONStringify(result))
         Exit Sub
@@ -44,15 +73,19 @@ Public Sub pullSheet()
 
 End Sub
 
-
+Public Sub createFromSheet()
+    pushItems (True)
+End Sub
+Public Sub updateFromSheet()
+    pushItems (False)
+End Sub
 '/**
 ' * push active sheet to effex
 ' */
-Public Sub pushSheet()
+Public Sub pushItems(Optional create As Boolean = False)
 '  // we'll need these are in the registry
-    Dim ec As cVBAMapsEffex
-    Set ec = New cVBAMapsEffex
-    Const demoUrl = "https://storage.googleapis.com/effex-console-static/demos/effex-demo-markers/index.html"
+
+
     Dim keys As cJobject
     Set keys = ec.getProperty("keys")
     Debug.Assert isSomething(keys)
@@ -61,15 +94,22 @@ Public Sub pushSheet()
     values = ActiveSheet().UsedRange.value
     
     ' // set the data using the updater key
-    Set result = ec.pushDataForUpdate(ec.objectify(values), keys, "effex-demo-markers")
+    If (create) Then
+        Set result = ec.pushDataForUpdate(ec.objectify(values), keys, alias)
+    Else
+        ' updating an existing item
+        Set result = efx.update(ec.objectify(values), alias, keys.toString("updater"))
+    End If
+
     If (Not result.cValue("ok")) Then
         MsgBox ("couldnt push data " + JSONStringify(result))
         Exit Sub
     End If
     
     '  // just show what happened
-    Debug.Print demoUrl + "?updater=" + result.toString("key") + "&item=" + result.toString("alias")
-
+    If (create) Then
+        InputBox "heres the link", "maps app", demoUrl + "?updater=" + result.toString("key") + "&item=" + result.toString("alias")
+    End If
 End Sub
 
 '/**
@@ -78,8 +118,7 @@ End Sub
 ' */
 Public Function generateKeys()
   '// the boss key is already here
-    Dim ec As cVBAMapsEffex
-    Set ec = New cVBAMapsEffex
+
     
     Dim boss As cJobject, keys As cJobject
     Set boss = ec.getProperty("boss")
