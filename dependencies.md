@@ -1,5 +1,5 @@
 # VBA Project: effex-demo-markers-excel
-This repo (effex-demo-markers-excel) was automatically created on 3/8/2017 8:40:47 AM by VBAGit.For more information see the [desktop liberation site](http://ramblings.mcpher.com/Home/excelquirks/drivesdk/gettinggithubready "desktop liberation") or [contact me on G+](https://plus.google.com/+BruceMcpherson "Bruce McPherson - GDE")  
+This repo (effex-demo-markers-excel) was automatically created on 3/8/2017 8:42:35 AM by VBAGit.For more information see the [desktop liberation site](http://ramblings.mcpher.com/Home/excelquirks/drivesdk/gettinggithubready "desktop liberation") or [contact me on G+](https://plus.google.com/+BruceMcpherson "Bruce McPherson - GDE")  
 ## Details for VBA project effex-demo-markers-excel
 Where possibile directly referenced or sub referenced library sources have been copied to this repository  
 ### Modules of effex-demo-markers-excel included in this repo
