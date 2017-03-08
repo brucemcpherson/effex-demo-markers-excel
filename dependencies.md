@@ -1,5 +1,5 @@
 # VBA Project: effex-demo-markers-excel
-This repo (effex-demo-markers-excel) was automatically created on 3/8/2017 8:42:35 AM by VBAGit.For more information see the [desktop liberation site](http://ramblings.mcpher.com/Home/excelquirks/drivesdk/gettinggithubready "desktop liberation") or [contact me on G+](https://plus.google.com/+BruceMcpherson "Bruce McPherson - GDE")  
+This repo (effex-demo-markers-excel) was automatically created on 3/8/2017 11:15:30 AM by VBAGit.For more information see the [desktop liberation site](http://ramblings.mcpher.com/Home/excelquirks/drivesdk/gettinggithubready "desktop liberation") or [contact me on G+](https://plus.google.com/+BruceMcpherson "Bruce McPherson - GDE")  
 ## Details for VBA project effex-demo-markers-excel
 Where possibile directly referenced or sub referenced library sources have been copied to this repository  
 ### Modules of effex-demo-markers-excel included in this repo
@@ -14,7 +14,6 @@ VBAMapsEffex|StdModule|[VBAMapsEffex.vba](scripts/VBAMapsEffex.vba "script sourc
 cEffexApiClientVBA|ClassModule|[cEffexApiClientVBA.cls](libraries/cEffexApiClientVBA.cls "library source")|[cEffexApiClientVBA_cls.md](libraries/cEffexApiClientVBA_cls.md "library docs")  
 usefulStuff|StdModule|[usefulStuff.vba](libraries/usefulStuff.vba "library source")|[usefulStuff_vba.md](libraries/usefulStuff_vba.md "library docs")  
 usefulcJobject|StdModule|[usefulcJobject.vba](libraries/usefulcJobject.vba "library source")|[usefulcJobject_vba.md](libraries/usefulcJobject_vba.md "library docs")  
-cVBAMapsEffex|ClassModule|[cVBAMapsEffex.cls](libraries/cVBAMapsEffex.cls "library source")|[cVBAMapsEffex_cls.md](libraries/cVBAMapsEffex_cls.md "library docs")  
 cJobject|ClassModule|[cJobject.cls](libraries/cJobject.cls "library source")|[cJobject_cls.md](libraries/cJobject_cls.md "library docs")  
 cStringChunker|ClassModule|[cStringChunker.cls](libraries/cStringChunker.cls "library source")|[cStringChunker_cls.md](libraries/cStringChunker_cls.md "library docs")  
 cBrowser|ClassModule|[cBrowser.cls](libraries/cBrowser.cls "library source")|[cBrowser_cls.md](libraries/cBrowser_cls.md "library docs")  
